@@ -43,6 +43,15 @@ please add the following to your **.env** file. This will allow a connection to 
     TEST_DB_USERNAME="sail"
     TEST_DB_PASSWORD="password"
 
+To run the test for the API you may use this command: 
+
+    php artisan test --filter=ProductControllerTest
+
+Alternatively
+
+    php artisan test
+
+
 The documents for the API are here: 
 
     http://localhost/docs
@@ -50,13 +59,20 @@ The documents for the API are here:
 
 ## Migration of Data 
 
-Its important to migrate and seed data.
+It's important to migrate and seed data.
 
 The two commands to migrate data are
 
     php artisan migrate
 
     php artisan db:seed 
+
+Depending on the environment setup on your local machine, it might be easier to run the above commands from within 
+your docker container. i.e 
+
+ssh in to the container with this command substitute the name "productapi_laravel.test_1" for the name of your container": 
+
+    docker exec -it productapi_laravel.test_1  bash
 
 
 
