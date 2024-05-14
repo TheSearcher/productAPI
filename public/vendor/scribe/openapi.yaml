@@ -1,0 +1,163 @@
+openapi: 3.0.3
+info:
+  title: 'An API proof of concept test for We3World'
+  description: "This is a proof-of-concept website for We3World.\n\nIt is Laravel driven and use Docker (Sail) as its setup.\n\n\nThe focus of the website is two API endpoints.\n\n1.\tProducts\n\n2.\tProduct\n\nThe Products endpoint returns a list of all products.\n\nThe Product endpoint returns a single product.\n"
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/products:
+    get:
+      summary: Products
+      operationId: products
+      description: "The purpose of this endpoint is to get full Product list\n\nIf everything is okay, you'll get a 201: request was fulfilled and this resulted in a new resource being created.\n\nOtherwise, the request will fail with a 400 error, and a response listing the failed services."
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n {\n\"id\": 123,\n\"name\": \"XX handbag\",\n\"description\": \"\",\n\"hero_image\": \"image\",\n\"price\": \"199.750\",\n\"is_live\": 1,\n\"created_at\": \"2024-05-12T14:13:17.000000Z\",\n\"updated_at\": \"2024-05-12T14:13:17.000000Z\"\n},\n{\n\"id\": 124,\n\"name\": \"BD handbag\",\n\"description\": \"\",\n\"hero_image\": \"image\",\n\"price\": \"299.750\",\n\"is_live\": 1,\n\"created_at\": \"2024-05-12T14:13:17.000000Z\",\n\"updated_at\": \"2024-05-12T14:13:17.000000Z\"\n}\n}"
+      tags:
+        - Products
+  '/api/products/{product_id}':
+    get:
+      summary: Product
+      operationId: product
+      description: "The purpose of this is to get a single Product\n\nIf everything is okay, you'll get a 201: request was fulfilled and this resulted in a new resource being created."
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 123
+                  name: 'XX handbag'
+                  description: ''
+                  hero_image: image
+                  price: '199.750'
+                  is_live: 1
+                  created_at: '2024-05-12T14:13:17.000000Z'
+                  updated_at: '2024-05-12T14:13:17.000000Z'
+                properties:
+                  id:
+                    type: integer
+                    example: 123
+                  name:
+                    type: string
+                    example: 'XX handbag'
+                  description:
+                    type: string
+                    example: ''
+                  hero_image:
+                    type: string
+                    example: image
+                  price:
+                    type: string
+                    example: '199.750'
+                  is_live:
+                    type: integer
+                    example: 1
+                  created_at:
+                    type: string
+                    example: '2024-05-12T14:13:17.000000Z'
+                  updated_at:
+                    type: string
+                    example: '2024-05-12T14:13:17.000000Z'
+      tags:
+        - Products
+    parameters:
+      -
+        in: path
+        name: product_id
+        description: 'The ID of the product.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/auth/login:
+    post:
+      summary: 'Login The User'
+      operationId: loginTheUser
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: 'true'
+                  message: 'Your login was successful'
+                  token: 14|DEH8me6SQE8Ze69f8WFfP1h
+                properties:
+                  status:
+                    type: string
+                    example: 'true'
+                  message:
+                    type: string
+                    example: 'Your login was successful'
+                  token:
+                    type: string
+                    example: 14|DEH8me6SQE8Ze69f8WFfP1h
+      tags:
+        - 'User Login'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: ''
+                  example: saige36@example.org
+                password:
+                  type: string
+                  description: ''
+                  example: '[c6l{VtS2wnu2'
+              required:
+                - email
+                - password
+      security: []
+  /api/auth/logout:
+    get:
+      summary: "Logout\nuser (Revoke the token)"
+      operationId: logoutuserRevokeTheToken
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"message\": \"Successfully logged out\",\n}"
+      tags:
+        - 'User Login'
+tags:
+  -
+    name: Products
+    description: ''
+  -
+    name: 'User Login'
+    description: ''
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: 'Details of how to <b>Generate API token</b> is documented above.'
+security:
+  -
+    default: []

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+docker exec -it   elitefilipino_mysql_1  bash

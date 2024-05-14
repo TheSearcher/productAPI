@@ -1,0 +1,26 @@
+#!/bin/sh
+
+ ./vendor/bin/sail up -d
+
+ echo "
+ ===================== 🚀 Done 🚀 ===================
+
+ Created by Endy Ofo
+
+       Access your new links:
+
+
+   ShopPlatform :         http://localhost
+
+   Telescope(debugging):  http://localhost/telescope
+
+   Database:              http://localhost:1231
+
+   Credential Database: User:sail  Password:password
+
+      then run:
+
+           npm run dev
+
+
+ ===================== 🚀 Done 🚀 ==================="

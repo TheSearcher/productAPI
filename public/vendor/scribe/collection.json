@@ -1,0 +1,182 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost"
+        }
+    ],
+    "info": {
+        "name": "An API proof of concept test for We3World",
+        "_postman_id": "b2b09e4e-f739-42ba-9899-20190027b2ce",
+        "description": "This is a proof-of-concept website for We3World.\n\nIt is Laravel driven and use Docker (Sail) as its setup.\n\n\nThe focus of the website is two API endpoints.\n\n1.\tProducts\n\n2.\tProduct\n\nThe Products endpoint returns a list of all products.\n\nThe Product endpoint returns a single product.\n",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Products",
+            "description": "",
+            "item": [
+                {
+                    "name": "Products",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/products",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/products"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "The purpose of this endpoint is to get full Product list\n\nIf everything is okay, you'll get a 201: request was fulfilled and this resulted in a new resource being created.\n\nOtherwise, the request will fail with a 400 error, and a response listing the failed services."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n {\n\"id\": 123,\n\"name\": \"XX handbag\",\n\"description\": \"\",\n\"hero_image\": \"image\",\n\"price\": \"199.750\",\n\"is_live\": 1,\n\"created_at\": \"2024-05-12T14:13:17.000000Z\",\n\"updated_at\": \"2024-05-12T14:13:17.000000Z\"\n},\n{\n\"id\": 124,\n\"name\": \"BD handbag\",\n\"description\": \"\",\n\"hero_image\": \"image\",\n\"price\": \"299.750\",\n\"is_live\": 1,\n\"created_at\": \"2024-05-12T14:13:17.000000Z\",\n\"updated_at\": \"2024-05-12T14:13:17.000000Z\"\n}\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Product",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/products\/:product_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/products\/:product_id",
+                            "variable": [
+                                {
+                                    "id": "product_id",
+                                    "key": "product_id",
+                                    "value": "1",
+                                    "description": "The ID of the product."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "The purpose of this is to get a single Product\n\nIf everything is okay, you'll get a 201: request was fulfilled and this resulted in a new resource being created."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"id\": 123,\n\"name\": \"XX handbag\",\n\"description\": \"\",\n\"hero_image\": \"image\",\n\"price\": \"199.750\",\n\"is_live\": 1,\n\"created_at\": \"2024-05-12T14:13:17.000000Z\",\n\"updated_at\": \"2024-05-12T14:13:17.000000Z\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "User Login",
+            "description": "",
+            "item": [
+                {
+                    "name": "Login The User",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"saige36@example.org\",\"password\":\"[c6l{VtS2wnu2\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": \"true\",\n\"message\": \"Your login was successful\",\n\"token\": \"14|DEH8me6SQE8Ze69f8WFfP1h\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Logout\nuser (Revoke the token)",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/logout"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"message\": \"Successfully logged out\",\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "Authorization",
+                "type": "string"
+            }
+        ]
+    }
+}

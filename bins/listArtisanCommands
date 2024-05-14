@@ -1,0 +1,22 @@
+#!/bin/sh
+
+echo "
+ ===================== 🚀 Done 🚀 ===================
+
+ Created by Endy Ofo
+
+Artisan Commands:
+
+Get Route Lists:                       php artisan route:list
+
+Create New Table:                       php artisan migration create_shop_languages_table   (last part is the table name)
+
+Create Model in Specific Repoisitory:   php artisan make:model Models\\Settings\\ShopLanguage
+
+Livewire Commands:
+
+create New Componnet:                   php artisan make:livewire LanguageListing
+
+
+ ===================== 🚀 Done 🚀 ==================="
+

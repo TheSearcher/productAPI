@@ -1,0 +1,133 @@
+name: Products
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/products
+    metadata:
+      groupName: Products
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: Products
+      description: |-
+        The purpose of this endpoint is to get full Product list
+
+        If everything is okay, you'll get a 201: request was fulfilled and this resulted in a new resource being created.
+
+        Otherwise, the request will fail with a 400 error, and a response listing the failed services.
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer ACCESS_TOKEN'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           {
+          "id": 123,
+          "name": "XX handbag",
+          "description": "",
+          "hero_image": "image",
+          "price": "199.750",
+          "is_live": 1,
+          "created_at": "2024-05-12T14:13:17.000000Z",
+          "updated_at": "2024-05-12T14:13:17.000000Z"
+          },
+          {
+          "id": 124,
+          "name": "BD handbag",
+          "description": "",
+          "hero_image": "image",
+          "price": "299.750",
+          "is_live": 1,
+          "created_at": "2024-05-12T14:13:17.000000Z",
+          "updated_at": "2024-05-12T14:13:17.000000Z"
+          }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 5DEh3dVeZak184gP6cfvab6'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/products/{product_id}'
+    metadata:
+      groupName: Products
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: Product
+      description: |-
+        The purpose of this is to get a single Product
+
+        If everything is okay, you'll get a 201: request was fulfilled and this resulted in a new resource being created.
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer ACCESS_TOKEN'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      product_id:
+        name: product_id
+        description: 'The ID of the product.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      product_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "id": 123,
+          "name": "XX handbag",
+          "description": "",
+          "hero_image": "image",
+          "price": "199.750",
+          "is_live": 1,
+          "created_at": "2024-05-12T14:13:17.000000Z",
+          "updated_at": "2024-05-12T14:13:17.000000Z"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 5hdf1gb3k4EPVZace8v6a6D'
+    controller: null
+    method: null
+    route: null
+    custom: []
