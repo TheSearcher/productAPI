@@ -1,4 +1,4 @@
-# proof Of Concept Website for We3World
+# Proof Of Concept Website For We3World
 
 This is a proof-of-concept website for We3World.
 
@@ -33,7 +33,9 @@ Alternatively, you should be able to start the container by running:
 
     ./bins/start 
 
-please add the following to your **.env** file
+## PHP Unit Test 
+
+please add the following to your **.env** file. This will allow a connection to the testing db.
 
 
     TEST_DB_HOST="mysql"
