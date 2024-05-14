@@ -46,3 +46,16 @@ The documents for the API are here:
     http://localhost/docs
 
 
+## Migration of Data 
+
+Its important to migrate and seed data.
+
+The two commands to migrate data are
+
+    php artisan migrate
+
+    php artisan db:seed 
+
+
+
+
