@@ -75,5 +75,13 @@ ssh in to the container with this command substitute the name "productapi_larave
     docker exec -it productapi_laravel.test_1  bash
 
 
+## Generate API Docs
+
+I use a package called scribe to generate the API documents. You might need to run the scribe command again to generate them. 
+
+
+    php artisan scribe:generate
+
+
 
 
